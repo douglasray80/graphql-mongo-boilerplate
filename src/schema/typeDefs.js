@@ -11,6 +11,13 @@ export const typeDefs = gql`
 		name: String!
 	}
 
+	type User {
+		id: ID!
+		email: String!
+		name: String!
+		password: String!
+	}
+
 	type Mutation {
 		createCat(name: String!): Cat!
 		updateCat(id: ID!, name: String!): Cat!
