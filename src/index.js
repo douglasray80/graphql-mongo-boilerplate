@@ -9,7 +9,10 @@ const startServer = async () => {
 
 	const server = new ApolloServer({
 		typeDefs,
-		resolvers
+		resolvers,
+		context: request => ({
+			...request
+		})
 	})
 
 	server.applyMiddleware({ app })
