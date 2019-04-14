@@ -18,7 +18,8 @@ const startServer = async () => {
 	server.applyMiddleware({ app })
 
 	await mongoose.connect('mongodb://localhost:27017/test3', {
-		useNewUrlParser: true
+		useNewUrlParser: true,
+		useCreateIndex: true
 	})
 
 	app.listen({ port: 4000 }, () =>

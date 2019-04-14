@@ -1,3 +1,9 @@
 import mongoose from 'mongoose'
 
-export const Cat = mongoose.model('Cat', { name: String })
+const catSchema = new mongoose.Schema({
+	name: {
+		type: String
+	}
+})
+
+export default mongoose.model('Cat', catSchema)
