@@ -18,10 +18,15 @@ const startServer = async () => {
 
 	server.applyMiddleware({ app, path: '/' })
 
-	await mongoose.connect(process.env.MONGO_URI, {
-		useNewUrlParser: true,
-		useCreateIndex: true
-	})
+	await mongoose
+		.connect(process.env.MONGO_URI, {
+			useNewUrlParser: true,
+			useCreateIndex: true
+		})
+		.then(() => console.log('Connected to database...'))
+		.catch(err =>
+			console.log('There was an error connecting to database: ' + err)
+		)
 
 	app.listen({ port: 4000 }, () =>
 		console.log(`Server ready at http://localhost:4000${server.graphqlPath}`)

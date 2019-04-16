@@ -18,7 +18,10 @@ export const typeDefs = gql`
 		name: String!
 		password: String!
 		username: String!
+		createdAt: DateTime
 	}
+
+	scalar DateTime
 
 	type AuthPayload {
 		token: String!
